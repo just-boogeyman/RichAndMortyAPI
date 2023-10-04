@@ -7,31 +7,18 @@
 
 import UIKit
 
-enum StatusCharacter: String {
-    case alive = "Alive"
-    case dead = "Dead"
-    case unknown = "Unknown"
-}
-
 final class CaracterCell: UITableViewCell {
-    
     
     @IBOutlet var characrerImage: UIImageView!
     @IBOutlet var nameLable: UILabel!
     @IBOutlet var aliveLable: UILabel!
-    
+    @IBOutlet var viewCell: UIView!
     @IBOutlet var aliveView: UIView!
     private let natworkMenager = NetworkManager.shared
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        settingView()
     }
     
     func configure(with character: Results) {
@@ -53,5 +40,11 @@ final class CaracterCell: UITableViewCell {
                 print(error)
             }
         }
+    }
+    
+    private func settingView() {
+        viewCell.layer.shadowOpacity = 0.5
+        viewCell.layer.shadowOffset = CGSize(width: 0.0, height: 10.0)
+        viewCell.layer.shadowRadius = 10
     }
 }

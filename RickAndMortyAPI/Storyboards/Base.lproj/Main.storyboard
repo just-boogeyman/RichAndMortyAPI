@@ -31,19 +31,19 @@
                                             <rect key="frame" x="16" y="8" width="343" height="105"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3Ef-X2-RBQ">
-                                                    <rect key="frame" x="111" y="8" width="64.5" height="89"/>
+                                                    <rect key="frame" x="111" y="8" width="224" height="65"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVT-qS-ACp">
-                                                            <rect key="frame" x="0.0" y="0.0" width="64.5" height="24.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="224" height="24.5"/>
                                                             <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="21"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0dj-4T-c6h">
-                                                            <rect key="frame" x="0.0" y="44.5" width="64.5" height="44.5"/>
+                                                            <rect key="frame" x="0.0" y="44.5" width="224" height="20.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASs-kz-HbP">
-                                                                    <rect key="frame" x="0.0" y="15" width="15" height="15"/>
+                                                                    <rect key="frame" x="0.0" y="3" width="15" height="15"/>
                                                                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="15" id="7Dr-Q7-HGU"/>
@@ -56,7 +56,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifP-TR-E6I">
-                                                                    <rect key="frame" x="23" y="12" width="41.5" height="20.5"/>
+                                                                    <rect key="frame" x="23" y="0.0" width="201" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -80,9 +80,9 @@
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="3Ef-X2-RBQ" firstAttribute="top" secondItem="FeG-ag-CHa" secondAttribute="top" constant="8" id="1md-al-gHv"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Ef-X2-RBQ" secondAttribute="trailing" constant="8" id="3xZ-gS-acn"/>
                                                 <constraint firstItem="Uog-9Q-qgn" firstAttribute="top" secondItem="FeG-ag-CHa" secondAttribute="top" constant="5" id="CcJ-yE-kyi"/>
                                                 <constraint firstItem="Uog-9Q-qgn" firstAttribute="leading" secondItem="FeG-ag-CHa" secondAttribute="leading" constant="5" id="RUy-Ju-wbb"/>
-                                                <constraint firstAttribute="bottom" secondItem="3Ef-X2-RBQ" secondAttribute="bottom" constant="8" id="Ur4-cH-JUj"/>
                                                 <constraint firstAttribute="bottom" secondItem="Uog-9Q-qgn" secondAttribute="bottom" constant="5" id="bC1-67-Yg3"/>
                                                 <constraint firstItem="3Ef-X2-RBQ" firstAttribute="leading" secondItem="Uog-9Q-qgn" secondAttribute="trailing" constant="16" id="hEH-E3-Bjh"/>
                                             </constraints>
@@ -106,6 +106,7 @@
                                     <outlet property="aliveView" destination="ASs-kz-HbP" id="6lO-CF-sL4"/>
                                     <outlet property="characrerImage" destination="Uog-9Q-qgn" id="R6f-eE-jut"/>
                                     <outlet property="nameLable" destination="IVT-qS-ACp" id="OaT-Wj-WeV"/>
+                                    <outlet property="viewCell" destination="FeG-ag-CHa" id="xyz-eZ-nrc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -142,46 +143,46 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="100"/>
+                                                <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="igB-LE-2gy">
-                                        <rect key="frame" x="16" y="306" width="140.5" height="63"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="igB-LE-2gy">
+                                        <rect key="frame" x="45" y="306" width="306" height="59"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last known location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6o-Ee-CgS">
-                                                <rect key="frame" x="0.0" y="0.0" width="140.5" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="156" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcQ-kH-wps">
-                                                <rect key="frame" x="0.0" y="39" width="48" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcQ-kH-wps">
+                                                <rect key="frame" x="0.0" y="33.5" width="85.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="S6O-70-5hX">
-                                        <rect key="frame" x="16" y="399" width="87" height="63"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="S6O-70-5hX">
+                                        <rect key="frame" x="45" y="395" width="306" height="59"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First seen in:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9P-kK-f6x">
-                                                <rect key="frame" x="0.0" y="0.0" width="87" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Origin:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9P-kK-f6x">
+                                                <rect key="frame" x="0.0" y="0.0" width="50.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jm9-so-ZRN">
-                                                <rect key="frame" x="0.0" y="39" width="48" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="origin" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jm9-so-ZRN">
+                                                <rect key="frame" x="0.0" y="33.5" width="62" height="25.5"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0JH-9d-Kz3">
-                                        <rect key="frame" x="16" y="256" width="139" height="20"/>
+                                        <rect key="frame" x="16" y="256" width="159.5" height="20"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35J-3A-WTv">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -197,20 +198,20 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNF-c6-cdI">
-                                                <rect key="frame" x="30" y="0.0" width="41" height="20"/>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                <rect key="frame" x="30" y="0.0" width="50.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bu4-cx-Nm5">
-                                                <rect key="frame" x="81" y="0.0" width="6" height="20"/>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                <rect key="frame" x="90.5" y="0.0" width="7" height="20"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alien" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbs-e2-gWp">
-                                                <rect key="frame" x="97" y="0.0" width="42" height="20"/>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                <rect key="frame" x="107.5" y="0.0" width="52" height="20"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -228,13 +229,15 @@
                                 <constraints>
                                     <constraint firstItem="S6O-70-5hX" firstAttribute="top" secondItem="igB-LE-2gy" secondAttribute="bottom" constant="30" id="0Ro-a5-SRv"/>
                                     <constraint firstItem="0JH-9d-Kz3" firstAttribute="leading" secondItem="Y6t-dI-1I0" secondAttribute="leading" constant="16" id="4o8-aO-XbC"/>
-                                    <constraint firstItem="igB-LE-2gy" firstAttribute="leading" secondItem="Y6t-dI-1I0" secondAttribute="leading" constant="16" id="7f9-c1-qym"/>
+                                    <constraint firstItem="igB-LE-2gy" firstAttribute="leading" secondItem="Y6t-dI-1I0" secondAttribute="leading" constant="45" id="7f9-c1-qym"/>
+                                    <constraint firstAttribute="trailing" secondItem="igB-LE-2gy" secondAttribute="trailing" constant="8" id="OIG-sc-OGO"/>
                                     <constraint firstItem="0JH-9d-Kz3" firstAttribute="top" secondItem="InC-Hd-ZyF" secondAttribute="bottom" constant="40" id="Snp-qF-59m"/>
                                     <constraint firstItem="0JH-9d-Kz3" firstAttribute="top" secondItem="JSe-lM-Cd0" secondAttribute="bottom" id="U87-1S-wNg"/>
                                     <constraint firstItem="JSe-lM-Cd0" firstAttribute="leading" secondItem="Y6t-dI-1I0" secondAttribute="leading" constant="25" id="b9N-cV-JSn"/>
+                                    <constraint firstAttribute="trailing" secondItem="S6O-70-5hX" secondAttribute="trailing" constant="8" id="gWl-S7-npc"/>
                                     <constraint firstItem="InC-Hd-ZyF" firstAttribute="top" secondItem="Y6t-dI-1I0" secondAttribute="top" constant="16" id="k7t-la-sZd"/>
                                     <constraint firstItem="InC-Hd-ZyF" firstAttribute="centerX" secondItem="Y6t-dI-1I0" secondAttribute="centerX" id="o6m-rc-liM"/>
-                                    <constraint firstItem="S6O-70-5hX" firstAttribute="leading" secondItem="Y6t-dI-1I0" secondAttribute="leading" constant="16" id="pYg-XL-OLF"/>
+                                    <constraint firstItem="S6O-70-5hX" firstAttribute="leading" secondItem="Y6t-dI-1I0" secondAttribute="leading" constant="45" id="pYg-XL-OLF"/>
                                     <constraint firstItem="igB-LE-2gy" firstAttribute="top" secondItem="0JH-9d-Kz3" secondAttribute="bottom" constant="30" id="uLq-9M-HnW"/>
                                     <constraint firstItem="JSe-lM-Cd0" firstAttribute="top" secondItem="Y6t-dI-1I0" secondAttribute="top" id="wSf-c3-W1U"/>
                                 </constraints>
@@ -256,9 +259,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Character" id="RMr-Y8-C2D"/>
                     <connections>
+                        <outlet property="characterView" destination="Y6t-dI-1I0" id="EYl-TY-8Yt"/>
                         <outlet property="imageView" destination="InC-Hd-ZyF" id="9yp-W2-wQF"/>
                         <outlet property="lineStatusView" destination="JSe-lM-Cd0" id="Nrk-IN-YeR"/>
                         <outlet property="locationLable" destination="NcQ-kH-wps" id="em0-wo-Cqp"/>
+                        <outlet property="originLable" destination="jm9-so-ZRN" id="Gp4-aT-w2b"/>
                         <outlet property="speciesLable" destination="Wbs-e2-gWp" id="DId-Pd-SAH"/>
                         <outlet property="statusLable" destination="oNF-c6-cdI" id="pSr-ZG-c0C"/>
                         <outlet property="statusView" destination="35J-3A-WTv" id="d3j-Uc-TFu"/>

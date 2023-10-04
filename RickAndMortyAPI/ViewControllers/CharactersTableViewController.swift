@@ -47,7 +47,6 @@ extension CharactersTableViewController {
 
 
 extension CharactersTableViewController {
-    
     private func feachCharacters() {
         networkManager.feachCharacters(from: RickAndMortyAPI.characters.rawValue) { [weak self] result in
             switch result {

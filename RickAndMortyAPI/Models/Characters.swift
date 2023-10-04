@@ -24,4 +24,11 @@ struct Results: Decodable {
     let status: String
     let species: String
     let image: String
+    let location: Location
+    let origin: Location
 }
+
+struct Location: Decodable {
+    let name: String
+}
+
