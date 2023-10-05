@@ -22,7 +22,23 @@ final class CaracterCell: UITableViewCell {
     }
     
     func configure(with character: Results) {
-        switch character.status {
+        costomizeViewColor(status: character.status)
+        nameLable.text = character.name
+        aliveLable.text = character.status
+        feach(image: character.image)
+    }
+}
+
+
+private extension CaracterCell {
+    func settingView() {
+        viewCell.layer.shadowOpacity = 0.5
+        viewCell.layer.shadowOffset = CGSize(width: 0.0, height: 10.0)
+        viewCell.layer.shadowRadius = 10
+    }
+    
+    func costomizeViewColor(status: String) {
+        switch status {
         case "Alive":
             aliveView.backgroundColor = .green
         case "Dead":
@@ -30,9 +46,10 @@ final class CaracterCell: UITableViewCell {
         default:
             aliveView.backgroundColor = .gray
         }
-        nameLable.text = character.name
-        aliveLable.text = character.status
-        natworkMenager.feachImage(from: character.image) { [weak self] result in
+    }
+    
+    func feach(image: String) {
+        natworkMenager.feachImage(from: image) { [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.characrerImage.image = UIImage(data: imageData)
@@ -40,11 +57,5 @@ final class CaracterCell: UITableViewCell {
                 print(error)
             }
         }
-    }
-    
-    private func settingView() {
-        viewCell.layer.shadowOpacity = 0.5
-        viewCell.layer.shadowOffset = CGSize(width: 0.0, height: 10.0)
-        viewCell.layer.shadowRadius = 10
     }
 }

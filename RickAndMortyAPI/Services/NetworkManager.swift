@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum RickAndMortyAPI: String {
     case characters = "https://rickandmortyapi.com/api/character"
@@ -48,6 +49,25 @@ final class NetworkManager {
             }
         }.resume()
     }
+    
+//    func feachCharacterAF() {
+//        AF.request(RickAndMortyAPI.characters.rawValue)
+//            .validate()
+//            .responseJSON { dataResponse in
+//                switch dataResponse.result {
+//
+//                case .success(let value):
+//                    guard let charachersData = value as? [[String: Any]] else { return }
+//                    for characherData in charachersData {
+//                        let character = Characters(
+//                            results: characherData["Results"] as! [Results]
+//                        )
+//                    }
+//                case .failure(_):
+//                    <#code#>
+//                }
+//            }
+//    }
     
     func feachImage(from url: String, complition: @escaping(Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: url) else {

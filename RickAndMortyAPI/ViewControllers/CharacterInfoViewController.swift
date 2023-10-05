@@ -29,7 +29,10 @@ final class CharacterInfoViewController: UIViewController {
         settingView()
         configure()
     }
-    
+}
+
+
+private extension CharacterInfoViewController {
     func configure() {
         guard let character else { return }
         title = character.name
@@ -37,34 +40,11 @@ final class CharacterInfoViewController: UIViewController {
         speciesLable.text = character.species
         locationLable.text = character.location.name
         originLable.text = character.origin.name
-        
-        switch character.status {
-        case "Alive":
-            statusView.backgroundColor = .green
-            lineStatusView.backgroundColor = .green
-            characterView.layer.shadowColor = UIColor.green.cgColor
-        case "Dead":
-            statusView.backgroundColor = .red
-            lineStatusView.backgroundColor = .red
-            characterView.layer.shadowColor = UIColor.red.cgColor
-        default:
-            statusView.backgroundColor = .gray
-            lineStatusView.backgroundColor = .gray
-            characterView.layer.shadowColor = UIColor.gray.cgColor
-
-        }
-                
-        networkManager.feachImage(from: character.image) { [weak self] result in
-            switch result {
-            case .success(let imageData):
-                self?.imageView.image = UIImage(data: imageData)
-            case .failure(let error):
-                print(error)
-            }
-        }
+        costomizeViewColors(status: character.status)
+        feach(image: character.image)
     }
     
-    private func settingView() {
+    func settingView() {
         characterView.layer.shadowOpacity = 0.3
         characterView.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
         characterView.layer.shadowRadius = 20
@@ -74,5 +54,33 @@ final class CharacterInfoViewController: UIViewController {
         lineStatusView.layer.shadowOpacity = 0.7
         lineStatusView.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
         lineStatusView.layer.shadowRadius = 7
+    }
+    
+    func costomizeViewColors(status: String) {
+        switch status {
+        case "Alive":
+            setupView(color: .green)
+        case "Dead":
+            setupView(color: .red)
+        default:
+            setupView(color: .gray)
+        }
+    }
+    
+    private func setupView(color: UIColor) {
+        statusView.backgroundColor = color
+        lineStatusView.backgroundColor = color
+        characterView.layer.shadowColor = color.cgColor
+    }
+    
+    func feach(image: String) {
+        networkManager.feachImage(from: character.image) { [weak self] result in
+            switch result {
+            case .success(let imageData):
+                self?.imageView.image = UIImage(data: imageData)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
