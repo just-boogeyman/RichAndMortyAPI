@@ -50,31 +50,25 @@ final class NetworkManager {
         }.resume()
     }
     
-//    func feachCharacterAF() {
-//        AF.request(RickAndMortyAPI.characters.rawValue)
-//            .validate()
-//            .responseJSON { dataResponse in
-//                switch dataResponse.result {
-//
-//                case .success(let value):
-//                    guard let charachersData = value as? [[String: Any]] else { return }
-//                    for characherData in charachersData {
-//                        let character = Characters(
-//                            results: characherData["Results"] as! [Results]
-//                        )
-//                    }
-//                case .failure(_):
-//                    <#code#>
-//                }
-//            }
-//    }
+    func feachCharacterAF(from url: String, complition: @escaping(Result<[Results], AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let characters = Results.getCharacters(from: value)
+                    complition(.success(characters))
+                case .failure(let error):
+                    complition(.failure(error))
+                }
+            }
+    }
     
     func feachImage(from url: String, complition: @escaping(Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: url) else {
             complition(.failure(.invalidURL))
             return
         }
-        
         DispatchQueue.global().async {
             guard let imageData = try? Data(contentsOf: url) else {
                 complition(.failure(.noData))
@@ -84,5 +78,18 @@ final class NetworkManager {
                 complition(.success(imageData))
             }
         }
+    }
+    
+    func feachData(from url: String, complition: @escaping(Result<Data, AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseData { dataResponce in
+                switch dataResponce.result {
+                case .success(let imageData):
+                    complition(.success(imageData))
+                case .failure(let error):
+                    complition(.failure(error))
+                }
+            }
     }
 }

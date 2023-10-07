@@ -26,6 +26,22 @@ struct Results: Decodable {
     let image: String
     let location: Location
     let origin: Location
+    
+    init(characterData: [String: Any]) {
+        id = characterData["id"] as? Int ?? 0
+        name = characterData["name"] as? String ?? "Rick"
+        status = characterData["status"] as? String ?? "Alive"
+        species = characterData["spercies"] as? String ?? "Alien"
+        image = characterData["image"] as? String ?? "image"
+        location = characterData["location"] as? Location ?? Location(name: "location")
+        origin = characterData["origin"] as? Location ?? Location(name: "origin")
+    }
+    
+    static func getCharacters(from value: Any) -> [Results] {
+        guard let charachersData = value as? [String: Any] else { return [] }
+        guard let results = charachersData["results"] as? [[String: Any]] else { return [] }
+        return results.map { Results(characterData: $0) }
+    }
 }
 
 struct Location: Decodable {

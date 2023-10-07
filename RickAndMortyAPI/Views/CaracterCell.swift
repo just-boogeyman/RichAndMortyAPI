@@ -14,7 +14,7 @@ final class CaracterCell: UITableViewCell {
     @IBOutlet var aliveLable: UILabel!
     @IBOutlet var viewCell: UIView!
     @IBOutlet var aliveView: UIView!
-    private let natworkMenager = NetworkManager.shared
+    private let networkMenager = NetworkManager.shared
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,12 +49,12 @@ private extension CaracterCell {
     }
     
     func feach(image: String) {
-        natworkMenager.feachImage(from: image) { [weak self] result in
+        networkMenager.feachData(from: image) { [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.characrerImage.image = UIImage(data: imageData)
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }

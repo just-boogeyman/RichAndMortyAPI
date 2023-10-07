@@ -26,7 +26,7 @@ final class CharacterInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingView()
+        settingViews()
         configure()
     }
 }
@@ -44,7 +44,7 @@ private extension CharacterInfoViewController {
         feach(image: character.image)
     }
     
-    func settingView() {
+    func settingViews() {
         characterView.layer.shadowOpacity = 0.3
         characterView.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
         characterView.layer.shadowRadius = 20

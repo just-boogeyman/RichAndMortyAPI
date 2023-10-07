@@ -48,16 +48,15 @@ extension CharactersTableViewController {
 
 extension CharactersTableViewController {
     private func feachCharacters() {
-        networkManager.feachCharacters(from: RickAndMortyAPI.characters.rawValue) { [weak self] result in
-            switch result {
-            case .success(let results):
-                self?.characters = results.results
-                DispatchQueue.main.async {
+        networkManager.feachCharacterAF(
+            from: RickAndMortyAPI.characters.rawValue) { [weak self] results in
+                switch results {
+                case .success(let characters):
+                    self?.characters = characters
                     self?.tableView.reloadData()
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-            case .failure(let error):
-                print(error)
             }
-        }
     }
 }
