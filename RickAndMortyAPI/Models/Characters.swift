@@ -31,7 +31,7 @@ struct Results: Decodable {
         id = characterData["id"] as? Int ?? 0
         name = characterData["name"] as? String ?? "Rick"
         status = characterData["status"] as? String ?? "Alive"
-        species = characterData["spercies"] as? String ?? "Alien"
+        species = characterData["species"] as? String ?? "Alien"
         image = characterData["image"] as? String ?? "image"
         location = characterData["location"] as? Location ?? Location(name: "location")
         origin = characterData["origin"] as? Location ?? Location(name: "origin")
