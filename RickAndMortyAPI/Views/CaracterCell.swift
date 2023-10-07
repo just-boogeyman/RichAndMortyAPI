@@ -14,7 +14,10 @@ final class CaracterCell: UITableViewCell {
     @IBOutlet var aliveLable: UILabel!
     @IBOutlet var viewCell: UIView!
     @IBOutlet var aliveView: UIView!
+    
     private let networkMenager = NetworkManager.shared
+    var activityIndicator = UIActivityIndicatorView()
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +25,7 @@ final class CaracterCell: UITableViewCell {
     }
     
     func configure(with character: Results) {
+        getActivityIndicator()
         costomizeViewColor(status: character.status)
         nameLable.text = character.name
         aliveLable.text = character.status
@@ -49,13 +53,26 @@ private extension CaracterCell {
     }
     
     func feach(image: String) {
+        self.activityIndicator.startAnimating()
         networkMenager.feachData(from: image) { [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.characrerImage.image = UIImage(data: imageData)
+                self?.activityIndicator.stopAnimating()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func getActivityIndicator() {
+        self.activityIndicator.frame = CGRect(
+            x: 30,
+            y: 30,
+            width: 50,
+            height: 50
+        )
+        self.activityIndicator.hidesWhenStopped = true
+        viewCell.addSubview(self.activityIndicator)
     }
 }

@@ -22,16 +22,19 @@ final class CharacterInfoViewController: UIViewController {
     @IBOutlet var characterView: UIView!
     
     var character: Results!
+    var activityIndicator = UIActivityIndicatorView()
     private let networkManager = NetworkManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getActivityIndicator()
         settingViews()
         configure()
     }
 }
 
 
+//MARK: - Private Extensions
 private extension CharacterInfoViewController {
     func configure() {
         guard let character else { return }
@@ -74,13 +77,27 @@ private extension CharacterInfoViewController {
     }
     
     func feach(image: String) {
+        self.activityIndicator.startAnimating()
         networkManager.feachImage(from: character.image) { [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.imageView.image = UIImage(data: imageData)
+                self?.activityIndicator.stopAnimating()
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    private func getActivityIndicator() {
+        self.activityIndicator.frame = CGRect(
+            x: characterView.frame.width / 2,
+            y: imageView.frame.width / 2,
+            width: 50,
+            height: 50
+        )
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.style = .large        
+        characterView.addSubview(self.activityIndicator)
     }
 }

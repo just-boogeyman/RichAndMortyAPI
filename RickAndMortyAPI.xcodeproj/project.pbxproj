@@ -18,7 +18,6 @@
 		048EEA032AC9A89400483A3C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048EEA022AC9A89400483A3C /* NetworkManager.swift */; };
 		04971CBA2ACCEDAA003F7FBB /* CharacterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04971CB92ACCEDAA003F7FBB /* CharacterInfoViewController.swift */; };
 		04AD84502ACEF81800DD8375 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 04AD844F2ACEF81800DD8375 /* Alamofire */; };
-		04E7A5D92ACE3E2E007F8349 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 04E7A5D82ACE3E2E007F8349 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +40,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04E7A5D92ACE3E2E007F8349 /* SDWebImage in Frameworks */,
 				04AD84502ACEF81800DD8375 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,7 +146,6 @@
 			);
 			name = RickAndMortyAPI;
 			packageProductDependencies = (
-				04E7A5D82ACE3E2E007F8349 /* SDWebImage */,
 				04AD844F2ACEF81800DD8375 /* Alamofire */,
 			);
 			productName = RickAndMortyAPI;
@@ -463,11 +460,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04AD844E2ACEF81800DD8375 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		04E7A5D82ACE3E2E007F8349 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 04E7A5D72ACE3E2E007F8349 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
