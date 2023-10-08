@@ -6,21 +6,32 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class CharactersTableViewController: UITableViewController {
     
     private var characters: [Results] = []
     private let networkManager = NetworkManager.shared
+    private let searchController = UISearchController(searchResultsController: nil)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 115
+        setupSearchController()
         feachCharacters()
+        setupRefreshControl()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let infoVC = segue.destination as? CharacterInfoViewController
         infoVC?.character = sender as? Results
+    }
+    
+    @IBAction func clearCache(_ sender: UIBarButtonItem) {
+        let cache = ImageCache.default
+        cache.clearMemoryCache()
+        cache.clearDiskCache()
     }
 }
 
@@ -45,18 +56,50 @@ extension CharactersTableViewController {
     }
 }
 
+// MARK: - UISearchResultsUpdating
+extension CharactersTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        print(searchController.searchBar.text ?? "")
+    }
+}
+
 
 extension CharactersTableViewController {
-    private func feachCharacters() {
+    @objc private func feachCharacters() {
+//        let urlCharacters = RickAndMortyAPI.characters.rawValue + String(Int.random(in: 1...42))
         networkManager.feachCharacterAF(
-            from: RickAndMortyAPI.characters.rawValue) { [weak self] results in
+            from: "https://rickandmortyapi.com/api/character?page=\(Int.random(in: 1...42))") { [weak self] results in
                 switch results {
                 case .success(let characters):
                     self?.characters = characters
                     self?.tableView.reloadData()
+                    if self?.refreshControl != nil {
+                        self?.refreshControl?.endRefreshing()
+                    }
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
             }
+    }
+    
+    private func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl?.addTarget(self, action: #selector(feachCharacters), for: .valueChanged)
+    }
+    
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.barTintColor = .white
+        searchController.searchBar.tintColor = .purple
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.font = UIFont.boldSystemFont(ofSize: 17)
+            textField.textColor = .white
+        }
     }
 }

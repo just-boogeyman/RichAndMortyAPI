@@ -115,7 +115,14 @@
                             <outlet property="delegate" destination="cau-gG-TVZ" id="7vY-U0-YdU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Rick and Morty" id="vlX-A3-y0x"/>
+                    <navigationItem key="navigationItem" title="Rick and Morty" id="vlX-A3-y0x">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="WbG-sT-iWZ">
+                            <color key="tintColor" systemColor="systemPurpleColor"/>
+                            <connections>
+                                <action selector="clearCache:" destination="cau-gG-TVZ" id="E5f-9P-kuA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="fnT-jr-WIK" kind="show" identifier="goToInfoVC" id="Ru5-kz-sm8"/>
                     </connections>
@@ -308,6 +315,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

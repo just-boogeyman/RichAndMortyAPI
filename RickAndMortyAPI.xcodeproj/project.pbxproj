@@ -17,6 +17,7 @@
 		048EEA012AC9A63E00483A3C /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048EEA002AC9A63E00483A3C /* Characters.swift */; };
 		048EEA032AC9A89400483A3C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048EEA022AC9A89400483A3C /* NetworkManager.swift */; };
 		04971CBA2ACCEDAA003F7FBB /* CharacterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04971CB92ACCEDAA003F7FBB /* CharacterInfoViewController.swift */; };
+		049F337C2AD257C20018027D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 049F337B2AD257C20018027D /* Kingfisher */; };
 		04AD84502ACEF81800DD8375 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 04AD844F2ACEF81800DD8375 /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049F337C2AD257C20018027D /* Kingfisher in Frameworks */,
 				04AD84502ACEF81800DD8375 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +149,7 @@
 			name = RickAndMortyAPI;
 			packageProductDependencies = (
 				04AD844F2ACEF81800DD8375 /* Alamofire */,
+				049F337B2AD257C20018027D /* Kingfisher */,
 			);
 			productName = RickAndMortyAPI;
 			productReference = 048EE9E42AC9A23800483A3C /* RickAndMortyAPI.app */;
@@ -179,6 +182,7 @@
 			packageReferences = (
 				04E7A5D72ACE3E2E007F8349 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				04AD844E2ACEF81800DD8375 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				049F337A2AD257C20018027D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 048EE9E52AC9A23800483A3C /* Products */;
 			projectDirPath = "";
@@ -437,6 +441,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		049F337A2AD257C20018027D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		04AD844E2ACEF81800DD8375 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -456,6 +468,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		049F337B2AD257C20018027D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 049F337A2AD257C20018027D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		04AD844F2ACEF81800DD8375 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 04AD844E2ACEF81800DD8375 /* XCRemoteSwiftPackageReference "Alamofire" */;

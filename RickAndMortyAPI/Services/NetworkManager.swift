@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 enum RickAndMortyAPI: String {
-    case characters = "https://rickandmortyapi.com/api/character"
+    case characters = "https://rickandmortyapi.com/api/character?page="
     case locations = "https://rickandmortyapi.com/api/location"
     case episodes = "https://rickandmortyapi.com/api/episode"
 }
