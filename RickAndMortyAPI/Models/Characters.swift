@@ -33,8 +33,12 @@ struct Results: Decodable {
         status = characterData["status"] as? String ?? "Alive"
         species = characterData["species"] as? String ?? "Alien"
         image = characterData["image"] as? String ?? "image"
-        location = characterData["location"] as? Location ?? Location(name: "location")
-        origin = characterData["origin"] as? Location ?? Location(name: "origin")
+        
+        let locationDict = characterData["location"] as? [String: String] ?? [:]
+        location = Location(value: locationDict)
+        
+        let originDict = characterData["origin"] as? [String: String] ?? [:]
+        origin = Location(value: originDict)
     }
     
     static func getCharacters(from value: Any) -> [Results] {
@@ -46,5 +50,9 @@ struct Results: Decodable {
 
 struct Location: Decodable {
     let name: String
+    
+    init(value: [String: String]) {
+        name = value["name"] ?? "123"
+    }
 }
 
